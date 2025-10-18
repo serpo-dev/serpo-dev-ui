@@ -1,0 +1,18 @@
+.toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: transform var(--transition);
+    font-size: 1.1rem;
+}
+
+.toggle:hover {
+    transform: translateY(-3px);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}

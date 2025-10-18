@@ -1,0 +1,98 @@
+/* ProjectGallery/FilterButtons/FilterButtons.module.css */
+.filterButtons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.8s;
+}
+
+.filterBtn {
+    background: transparent;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+.light .filterBtn {
+    border: 2px solid #333;
+    color: #333;
+}
+
+.light .filterBtn::before {
+    background: #333;
+}
+
+.light .filterBtn:hover,
+.light .filterBtn.active {
+    color: #fff;
+}
+
+.dark .filterBtn {
+    border: 2px solid #fff;
+    color: white;
+}
+
+.dark .filterBtn::before {
+    background: #fff;
+}
+
+.dark .filterBtn:hover,
+.dark .filterBtn.active {
+    color: #000;
+}
+
+.filterBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.filterBtn:hover::before,
+.filterBtn.active::before {
+    left: 0;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .filterButtons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+    .filterButtons {
+        gap: 0.8rem;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1280px) {
+    .filterButtons {
+        gap: 1.2rem;
+    }
+}
+
+@media (min-width: 1281px) {
+    .filterButtons {
+        gap: 1rem;
+    }
+}

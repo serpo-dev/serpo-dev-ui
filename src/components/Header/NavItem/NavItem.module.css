@@ -1,0 +1,15 @@
+.navItem{
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:8px;
+  color:var(--muted);
+  transition: color var(--transition), background var(--transition), transform var(--transition);
+  text-decoration:none;
+  font-weight:600;
+  font-size:1rem; /* сделано одинаковым размером с остальными пунктами */
+}
+.navItem:hover{
+  color:var(--text);
+  background: var(--hover-bg);
+  transform: translateY(-3px);
+}

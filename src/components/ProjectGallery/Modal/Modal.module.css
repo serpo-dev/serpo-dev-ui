@@ -1,0 +1,263 @@
+/* ProjectGallery/Modal/Modal.module.css */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.light {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.dark {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.modalContent {
+    width: 90%;
+    max-width: 800px;
+    padding: 2rem;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+.light .modalContent {
+    background: #fff;
+    border: 2px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark .modalContent {
+    background: #000;
+    border: 2px solid #fff;
+}
+
+.active .modalContent {
+    transform: scale(1);
+}
+
+.closeModal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.light .closeModal {
+    color: #333;
+    border: 1px solid #333;
+}
+
+.light .closeModal:hover {
+    background: #333;
+    color: #fff;
+}
+
+.dark .closeModal {
+    color: white;
+    border: 1px solid #fff;
+}
+
+.dark .closeModal:hover {
+    background: #fff;
+    color: #000;
+}
+
+.modalImage {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 1.5rem;
+    transition: filter 0.5s ease;
+}
+
+.light .modalImage {
+    filter: none;
+}
+
+.dark .modalImage {
+    filter: grayscale(100%);
+}
+
+.active .dark .modalImage {
+    filter: grayscale(0%);
+}
+
+.modalTitle {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.light .modalTitle {
+    color: #222;
+}
+
+.dark .modalTitle {
+    color: #fff;
+}
+
+.modalDescription {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.light .modalDescription {
+    color: #666;
+}
+
+.dark .modalDescription {
+    color: #aaa;
+}
+
+.modalTech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+
+.modalTechTag {
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.light .modalTechTag {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #555;
+}
+
+.dark .modalTechTag {
+    background: #111;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+.modalLinks {
+    display: flex;
+    gap: 1rem;
+}
+
+.modalLink {
+    background: transparent;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.light .modalLink {
+    border: 2px solid #333;
+    color: #333;
+}
+
+.light .modalLink::before {
+    background: #333;
+}
+
+.light .modalLink:hover {
+    color: #fff;
+}
+
+.dark .modalLink {
+    border: 2px solid #fff;
+    color: white;
+}
+
+.dark .modalLink::before {
+    background: #fff;
+}
+
+.dark .modalLink:hover {
+    color: #000;
+}
+
+.modalLink::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.modalLink:hover::before {
+    left: 0;
+}
+
+@media (max-width: 480px) {
+    .modalContent {
+        padding: 1.5rem;
+    }
+
+    .modalImage {
+        height: 250px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+    .modalContent {
+        width: 95%;
+    }
+
+    .modalImage {
+        height: 280px;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1280px) {
+    .modalContent {
+        padding: 2.5rem;
+    }
+
+    .modalImage {
+        height: 320px;
+    }
+}
+
+@media (min-width: 1281px) {
+    .modalContent {
+        max-width: 900px;
+    }
+
+    .modalImage {
+        height: 300px;
+    }
+}

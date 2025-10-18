@@ -1,0 +1,110 @@
+/* Общие стили */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+    padding: 24px 0;
+    box-sizing: border-box;
+}
+
+/* fullWidth — действительно на всю ширину */
+.fullWidth {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--surface);
+    color: var(--text);
+}
+
+/* Основной контент (фикс ширины) */
+.main {
+    width: 720px;
+    background: var(--surface);
+    color: var(--text);
+    border-radius: var(--radius);
+    box-sizing: border-box;
+    transition: background var(--transition), color var(--transition);
+}
+
+/* Боковые панели */
+.sidebarLeft,
+.sidebarRight {
+    flex-shrink: 0;
+    width: 240px;
+    background: var(--surface);
+    color: var(--text);
+    border-radius: var(--radius);
+    box-sizing: border-box;
+}
+
+/* -------------------- */
+/* Адаптив */
+/* -------------------- */
+
+/* Смартфон */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .main {
+        width: 360px;
+    }
+
+    .sidebarLeft,
+    .sidebarRight {
+        display: none;
+    }
+}
+
+/* Планшет — отключаем левый, оставляем правый */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .main {
+        width: 640px;
+    }
+
+    .sidebarLeft {
+        display: none;
+    }
+
+    .articleBoth .sidebarLeft {
+        display: none;
+    }
+
+    .articleBoth .sidebarRight {
+        display: block;
+    }
+
+    .sidebarRight {
+        width: 200px;
+    }
+}
+
+/* Ноутбуки */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .main {
+        width: 720px;
+    }
+
+    .sidebarLeft,
+    .sidebarRight {
+        width: 220px;
+    }
+}
+
+/* Большие экраны */
+@media (min-width: 1441px) {
+    .main {
+        width: 800px;
+    }
+
+    .sidebarLeft,
+    .sidebarRight {
+        width: 240px;
+    }
+}

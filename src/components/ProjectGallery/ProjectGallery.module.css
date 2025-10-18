@@ -1,0 +1,164 @@
+.body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.light {
+    background-color: #fff;
+    color: #333;
+}
+
+.dark {
+    background-color: #000;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-top: 2rem;
+    position: relative;
+}
+
+.h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.light .h1 {
+    color: #222;
+}
+
+.light .h1::before,
+.light .h1::after {
+    background-color: #222;
+}
+
+.dark .h1::before,
+.dark .h1::after {
+    background-color: #fff;
+}
+
+.h1::before,
+.h1::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    transition: width 1s ease;
+}
+
+.h1::before {
+    top: 0;
+    left: 0;
+}
+
+.h1::after {
+    bottom: 0;
+    right: 0;
+}
+
+.animate::before,
+.animate::after {
+    width: 100%;
+}
+
+.intro {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards 0.5s;
+}
+
+.light .intro {
+    color: #666;
+}
+
+.dark .intro {
+    color: #fff;
+}
+
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.light .footer {
+    border-top: 1px solid #ddd;
+    color: #888;
+}
+
+.dark .footer {
+    border-top: 1px solid #333;
+    color: #666;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .projectsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+    .projectsGrid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1280px) {
+    .projectsGrid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+
+    .h1 {
+        font-size: 3.2rem;
+    }
+}
+
+@media (min-width: 1281px) {
+    .projectsGrid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+
+    .h1 {
+        font-size: 3.5rem;
+    }
+}

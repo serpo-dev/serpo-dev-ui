@@ -1,0 +1,224 @@
+/* ProjectGallery/ProjectCard/ProjectCard.module.css */
+.projectCard {
+    overflow: hidden;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.light {
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.light:hover {
+    transform: translateY(-10px);
+    border-color: #333;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+    background: #111;
+    border: 1px solid #333;
+}
+
+.dark:hover {
+    transform: translateY(-10px);
+    border-color: #fff;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.projectImage {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: filter 0.3s ease;
+}
+
+.light .projectImage:hover {
+    filter: brightness(1.1);
+}
+
+.dark .projectImage {
+    filter: grayscale(100%);
+}
+
+.dark .projectImage:hover {
+    filter: grayscale(0%);
+}
+
+.projectOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.light .projectOverlay {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.dark .projectOverlay {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.projectCard:hover .projectOverlay {
+    opacity: 1;
+}
+
+.projectLinks {
+    display: flex;
+    gap: 1rem;
+}
+
+.projectLink {
+    background: transparent;
+    padding: 0.7rem 1.2rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.light .projectLink {
+    border: 2px solid #333;
+    color: #333;
+}
+
+.light .projectLink::before {
+    background: #333;
+}
+
+.light .projectLink:hover {
+    color: #fff;
+}
+
+.dark .projectLink {
+    border: 2px solid #fff;
+    color: white;
+}
+
+.dark .projectLink::before {
+    background: #fff;
+}
+
+.dark .projectLink:hover {
+    color: #000;
+}
+
+.projectLink::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.projectLink:hover::before {
+    left: 0;
+}
+
+.projectInfo {
+    padding: 1.5rem;
+}
+
+.projectTitle {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.light .projectTitle {
+    color: #222;
+}
+
+.dark .projectTitle {
+    color: #fff;
+}
+
+.projectDescription {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.light .projectDescription {
+    color: #666;
+}
+
+.dark .projectDescription {
+    color: #aaa;
+}
+
+.projectTech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.techTag {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.light .techTag {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #555;
+}
+
+.dark .techTag {
+    background: #222;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+@media (max-width: 480px) {
+    .projectImage {
+        height: 180px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+    .projectImage {
+        height: 190px;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1280px) {
+    .projectImage {
+        height: 210px;
+    }
+}
+
+@media (min-width: 1281px) {
+    .projectImage {
+        height: 200px;
+    }
+}

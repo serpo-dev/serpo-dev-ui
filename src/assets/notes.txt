@@ -1,0 +1,1 @@
+Add avatar.png, ghost.png, and other images to your app public folder or pass via props.

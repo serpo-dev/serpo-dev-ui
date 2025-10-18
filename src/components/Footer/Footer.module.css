@@ -1,0 +1,287 @@
+.footer {
+    background: var(--surface);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 150px 20px 48px 20px;
+    position: relative;
+    z-index: 30;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Левая часть: логотип + текст */
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    min-width: 280px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--text);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+/* Правая часть: две колонки ссылок */
+.right {
+    display: flex;
+    gap: 48px;
+    align-self: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.columnTitle {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.link {
+    font-size: 1.2rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 4px 0;
+    transition: color var(--transition);
+    line-height: 1.4;
+}
+
+.link:hover {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+/* Нижняя строка с копирайтом и доменом */
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    /* border-top: 1px solid rgba(0, 0, 0, 0.06); */
+    margin: 0 auto;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.domain {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.4;
+        color:rgb(110, 110, 110);
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.4;
+    white-space: nowrap;
+        color:rgb(110, 110, 110);
+}
+
+/* Адаптивные стили для планшетов (до 900px) */
+@media (max-width: 700px) {
+    .footer {
+        padding: 120px 16px 36px 16px;
+    }
+
+    .inner {
+        flex-direction: column;
+        gap: 24px;
+        align-items: stretch;
+    }
+
+    .left {
+        gap: 12px;
+        min-width: auto;
+        flex-direction: row;
+    }
+
+    .logo {
+        width: 56px;
+        height: 56px;
+    }
+
+    .title {
+        font-size: 1.15rem;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+        margin: 0;
+    }
+
+    .right {
+        gap: 80px;
+        width: 100%;
+    }
+
+    .columnTitle {
+        font-size: 0.9rem;
+    }
+
+    .link {
+        font-size: 1rem;
+    }
+
+    .bottom {
+        gap: 12px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .domain,
+    .copyright {
+        font-size: 0.8rem;
+    }
+}
+
+/* Адаптивные стили для смартфонов (до 480px) */
+@media (max-width: 480px) {
+    .footer {
+        padding: 90px 12px 28px 12px;
+    }
+
+    .inner {
+        gap: 20px;
+    }
+
+    .left {
+        gap: 10px;
+        flex-direction: row;
+    }
+
+    .logo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .right {
+        gap: 24px;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .column {
+        min-width: 120px;
+    }
+
+    .columnTitle {
+        font-size: 0.85rem;
+    }
+
+    .link {
+        font-size: 0.8rem;
+    }
+
+    .bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .domain,
+    .copyright {
+        font-size: 0.75rem;
+    }
+}
+
+/* Адаптивные стили для больших экранов (от 1280px) */
+@media (min-width: 1280px) {
+    .footer {
+        padding: 200px 32px 56px 32px;
+    }
+
+    .inner {
+        gap: 64px;
+    }
+
+    .left {
+        gap: 20px;
+        min-width: 320px;
+        flex-direction: column;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .right {
+        gap: 64px;
+    }
+
+    .columnTitle {
+        font-size: 1.2rem;
+    }
+
+    .link {
+        font-size: 1.2rem;
+    }
+
+    .bottom {
+        gap: 24px;
+    }
+
+    .domain,
+    .copyright {
+        font-size: 0.9rem;
+    }
+}

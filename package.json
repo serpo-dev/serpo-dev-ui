@@ -1,0 +1,37 @@
+{
+  "name": "serpo-ui",
+  "version": "1.0.0",
+  "description": "Modular React + TypeScript UI component library",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rmdir /s /q dist",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "8.3.5",
+    "@storybook/addon-interactions": "8.3.5",
+    "@storybook/addon-links": "8.3.5",
+    "@storybook/react": "8.3.5",
+    "@storybook/react-vite": "8.3.5",
+    "@vitejs/plugin-react": "4.3.2",
+    "storybook": "8.3.5",
+    "typescript": "^5.0.0",
+    "vite": "5.4.8",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.9.4"
+  }
+}

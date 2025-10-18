@@ -1,0 +1,252 @@
+.header {
+  /* прозрачный фон, закреплён сверху */
+  background: transparent;
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(6px);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Logo */
+.logo {
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--text);
+  position: relative;
+  padding: 4px 2px;
+  display: inline-block;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.logo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent));
+  border-radius: 4px;
+  transition: width var(--transition);
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo:hover::after {
+  width: 100%;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+/* Right controls */
+.right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* icon button generic */
+.iconBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: transform var(--transition), background var(--transition);
+}
+
+.iconBtn:hover {
+  transform: translateY(-3px);
+  background: var(--hover-bg);
+}
+
+.emoji {
+  font-size: 1.15rem;
+  line-height: 1;
+  display: block;
+  color: var(--text);
+}
+
+/* hamburger */
+.hamburger {
+  display: none;
+  /* hidden on larger screens */
+  background: transparent;
+  border: none;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hamburgerBox {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 20px;
+}
+
+.hamburgerBox span {
+  display: block;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+/* mobile slide-out */
+.mobileBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 45;
+  opacity: 0;
+  pointer-events: none;
+  transition: background 220ms var(--transition), opacity 220ms var(--transition);
+}
+
+.mobileBackdrop.open {
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* aside menu */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 280px;
+  height: 100%;
+  background: var(--surface);
+  box-shadow: var(--card-shadow);
+  z-index: 50;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: left 260ms cubic-bezier(.2, .9, .27, 1);
+}
+
+.mobileMenu.open {
+  left: 0;
+}
+
+.mobileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: auto;
+  padding-bottom: 48px;
+}
+
+.mobileItem {
+  display: block;
+  padding: 10px 8px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mobileItem:hover {
+  background: var(--hover-bg);
+  color: var(--text);
+  transform: none;
+}
+
+.mobileGroupTitle {
+  padding: 8px 6px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.mobileGroupList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 6px;
+}
+
+/* small adjustments for interactive elements */
+@media (max-width: 900px) {
+
+  /* tablet & smaller: hide desktop nav, show hamburger */
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: inline-flex;
+  }
+}
+
+/* desktop breakpoints: smartphone, tablet, laptop, wide */
+@media (max-width: 480px) {
+
+  /* smartphone: slightly larger touch targets */
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .mobileMenu {
+    width: 84%;
+    left: -100%;
+  }
+
+  .mobileMenu.open {
+    left: 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+
+  /* tablet */
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .mobileMenu {
+    width: 320px;
+    left: -320px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1280px) {
+
+  /* laptop */
+  .logo {
+    font-size: 1.35rem;
+  }
+}
+
+@media (min-width: 1281px) {
+
+  /* wide screens */
+  .logo {
+    font-size: 1.45rem;
+  }
+}

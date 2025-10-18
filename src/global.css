@@ -1,0 +1,69 @@
+/* global.css */
+@font-face {
+  font-family: 'SerpoRoboto';
+  src: url('./fonts/Roboto.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root{
+  /* monochrome-first design */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #0b0b0b; /* main text — deep near-black */
+  --muted: #0b1220; /* nav / secondary — darker than grey so it doesn't disappear on white */
+  --accent: #000000; /* logo underline / accents (black in light theme) */
+  --hover-bg: rgba(0,0,0,0.04); /* hover backgrounds (light theme) */
+  --card-shadow: 0 8px 24px rgba(17,17,17,0.08);
+  --radius: 10px;
+  --transition: 200ms ease;
+}
+
+[data-theme="dark"]{
+  --bg: #0b0b0d;
+  --surface: #0f1113;
+  --text: #e6e7e8;
+  --muted: #cbd5e1; /* lighter than text, readable on dark */
+  --accent: #ffffff; /* accent becomes white in dark theme */
+  --hover-bg: rgba(255,255,255,0.04); /* hover backgrounds for dark */
+  --card-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* base reset */
+*{box-sizing: border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  padding:0;
+  font-family: 'SerpoRoboto', Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* helpers */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+  width:100%;
+}
+
+/* simple reset for links */
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+
+/* toast positioning */
+.app-toast-portal{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1200;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:flex-end;
+}
